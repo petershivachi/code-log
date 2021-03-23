@@ -16,10 +16,10 @@ export class LogService {
   constructor() {
     this.logs = [
       {id: '1', text: 'Set up MongoDB', date: new Date('03/21/2021 12:34:23')},
-      {id: '1', text: 'Set up development server', date: new Date('03/22/2021 3:42:23')},
-      {id: '1', text: 'Set up MongoDB', date: new Date('03/23/2021 10:30:20')},
-      {id: '1', text: 'Create user model schema', date: new Date('03/24/2021 2:20:15')},
-      {id: '1', text: 'User authentication', date: new Date('03/25/2021 1:16:24')},
+      {id: '2', text: 'Set up development server', date: new Date('03/22/2021 3:42:23')},
+      {id: '3', text: 'Set up MongoDB', date: new Date('03/23/2021 10:30:20')},
+      {id: '4', text: 'Create user model schema', date: new Date('03/24/2021 2:20:15')},
+      {id: '5', text: 'User authentication', date: new Date('03/25/2021 1:16:24')},
     ]
    }
 
@@ -29,5 +29,18 @@ export class LogService {
 
    setFormLog(log: Log){
      this.logSource.next(log)
+   }
+
+   addLog(log: Log){
+     this.logs.unshift(log)
+   }
+
+   updateLog(log: Log){
+     this.logs.forEach((cur, index) => {
+       if(log.id === cur.id ){
+         this.logs.splice(index, 1);
+       }
+     });
+     this.logs.unshift(log)
    }
 }
