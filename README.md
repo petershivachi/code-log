@@ -1,2 +1,2 @@
 # code-log
-angular with firebase crud application for development logging
+angular with localstorage crud application for development logging
