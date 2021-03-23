@@ -29,7 +29,7 @@ export class LogFormComponent implements OnInit {
   onSubmit(){
     if(this.isNew){
       const newLog = {
-        id: this.generateId,
+        id: this.generateId(),
         text: this.text,
         date: new Date()
       }
